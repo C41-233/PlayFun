@@ -9,7 +9,7 @@ public class ValidationFailException extends Exception{
 	}
 
 	public static ValidationFailException configError(Class annotation, Class real) throws ValidationFailException {
-		throw new ValidationFailException("注解%s不支持类型%s", annotation.getSimpleName(), real.getSimpleName());
+		throw new ValidationFailException("注解%s不支持类型%s", annotation.getName(), real.getName());
 	}
 
 	public static ValidationFailException parameterRequired() throws ValidationFailException {
@@ -34,6 +34,10 @@ public class ValidationFailException extends Exception{
 
 	public static ValidationFailException arrayTooLong(int length) throws ValidationFailException {
 		throw new ValidationFailException("数组元素过多，限定%d", length);
+	}
+
+	public static ValidationFailException idValueError() throws ValidationFailException {
+		throw new ValidationFailException("非法的id数值");
 	}
 	
 }

@@ -21,7 +21,7 @@ public @interface ArrayValue {
 	public static class Validation implements IArrayConstraint<ArrayValue>{
 
 		@Override
-		public Object validate(ArrayValue annotation, Object value) throws ValidationFailException {
+		public Object validate(ArrayValue annotation, Class type, Object value) throws ValidationFailException {
 			int length = Array.getLength(value);
 			if(length < annotation.minLength()) {
 				throw ValidationFailException.arrayTooShort(annotation.minLength());

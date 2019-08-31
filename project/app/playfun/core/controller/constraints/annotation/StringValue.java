@@ -28,8 +28,8 @@ public @interface StringValue {
 	public static class Validation implements IValueConstraint<StringValue>{
 
 		@Override
-		public Object validate(StringValue annotation, Object value) throws ValidationFailException {
-			if(value == null || value instanceof String) {
+		public Object validate(StringValue annotation, Class type, Object value) throws ValidationFailException {
+			if(type == String.class) {
 				return validate(annotation, (String)value);
 			}
 			return ValidationFailException.configError(StringValue.class, value.getClass());
